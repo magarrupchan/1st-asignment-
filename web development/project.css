@@ -27,10 +27,8 @@ p {
 }
 
 header {
-    margin-top: 20px;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
     padding: 1rem 20%;
     background-color: transparent;
@@ -39,6 +37,16 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for show/hide effect */
+    opacity: 1; /* Default visible state */
+}
+
+header:hover {
+    opacity: 1; /* Always visible on hover */
+}
+
+body:has(header:hover) header {
+    opacity: 1; /* Keep the header visible when hovering */
 }
 
 nav a {
@@ -61,11 +69,11 @@ nav a.active {
         position: absolute;
         top: 100%;
         right: 0;
-        width: 40px; 
+        width: 40px;
         border-left: 3px solid #09C0EE;
         border-bottom: 3px solid #09C0EE;
         border-bottom-left-radius: 2rem;
-        padding: 1rem; 
+        padding: 1rem;
         background-color: #000000;
         border-top: 0.1rem solid #000000;
     }
@@ -143,7 +151,7 @@ main {
 }
 
 .card-content .btn:hover {
-    transform: scale(1.03); 
+    transform: scale(1.03);
     background-color: #09C0EE;
     color: black;
     box-shadow: 0 0 15px #09C0EE;
